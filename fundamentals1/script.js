@@ -67,26 +67,33 @@
 
 // CHALLENGE BONUS 2
 
+//
+// const dolphins1 = 97;
+// const dolphins2 = 112;
+// const dolphins3 = 101;
+//
+// const koalas1 = 109;
+// const koalas2 = 95;
+// const koalas3 = 106;
+//
+// const avgDolphin = (dolphins1 + dolphins2 + dolphins3) / 3;
+// const avgKoala = (koalas1 + koalas2 + koalas3) / 3;
+//
+// if (avgDolphin > avgKoala && avgDolphin >= 100) {
+//     console.log('Dolphins have the high score!');
+// } else if (avgKoala > avgDolphin && avgKoala >= 100) {
+//     console.log('Koalas have the high score!');
+// } else if (avgKoala < 100 && avgDolphin < 100) {
+//     console.log("No Winner");
+// } else if (avgKoala === avgDolphin) {
+//     console.log("It's a tie" + avgDolphin + avgDolphin);
+// } else {
+//     console.log('ERROR');
+// }
 
-const dolphins1 = 97;
-const dolphins2 = 112;
-const dolphins3 = 101;
+// CHALLENGE 4
 
-const koalas1 = 109;
-const koalas2 = 95;
-const koalas3 = 106;
+const bill = 300;
 
-const avgDolphin = (dolphins1 + dolphins2 + dolphins3) / 3;
-const avgKoala = (koalas1 + koalas2 + koalas3) / 3;
-
-if (avgDolphin > avgKoala && avgDolphin >= 100) {
-    console.log('Dolphins have the high score!');
-} else if (avgKoala > avgDolphin && avgKoala >= 100) {
-    console.log('Koalas have the high score!');
-} else if (avgKoala < 100 && avgDolphin < 100) {
-    console.log("No Winner");
-} else if (avgKoala === avgDolphin) {
-    console.log("It's a tie" + avgDolphin + avgDolphin);
-} else {
-    console.log('ERROR');
-}
+const tip = bill > 50 && bill < 300 ? bill * .15 : bill *.2;
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total was ${bill + tip}`);
