@@ -4,9 +4,10 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+const weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+
+
 const openingHours = {
-  //ES6 Allows
   [weekdays[3]]: {
     open: 12,
         close: 22,
@@ -30,10 +31,10 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  // Allowed by ES6
+  // ES6 Enhanced Object Literals
   openingHours,
 
-  // ES6 allows this function
+  // ES6 New Method Notation
   order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
@@ -287,10 +288,21 @@ TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Th
 // team1 < team2 && console.log('Team 1 wins');
 // team1 < team2 || console.log('Team 2 wins');
 
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-for (const item of menu) console.log(item);
+// "FOR OF" looping thru arrays (like python)
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+//
+// for (const item of menu) console.log(item);
+//
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }
 
-for (const [i, el] of menu.entries()) {
-  console.log(`${i + 1}: ${el}`);
+// OPTIONAL CHAINING
+
+// if opening hours exists and has a monday attribute, log the opening hours
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+  console.log(restaurant.openingHours.mon.open);
 }
+ // Use this instead
+console.log(restaurant.openingHours.mon?.open);
