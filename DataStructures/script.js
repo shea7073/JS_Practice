@@ -307,6 +307,7 @@ if (restaurant.openingHours && restaurant.openingHours.mon) {
 }
  // if monday doesn't exist AKA is undefined we will get undefined
 // if monday does exist and it DOES have an open we will get opening hours
+// CHAINING OPERATOR CHECKS IF ELEMENT ON LEFT EXISTS
 console.log(restaurant.openingHours.mon?.open);
 
 // Can also be used in series
@@ -318,3 +319,11 @@ for (const day of days) {
   const open = restaurant.openingHours[day]?.open ?? 'closed';
   console.log(`On ${day} we open at ${open}`);
 }
+
+// Optional chaining for METHODS
+// If order method is not nullish (AKA it exists) call it, else print string
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+
+// Optional chaining on ARRAYS
+const users = [{name: 'sean', email: 'shea7073@gmail.com'}];
+console.log(users[0]?.name ?? 'User array empty');
