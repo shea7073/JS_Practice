@@ -8,6 +8,7 @@ const weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'satur
 
 
 const openingHours = {
+  // Allowed by ES6
   [weekdays[3]]: {
     open: 12,
         close: 22,
