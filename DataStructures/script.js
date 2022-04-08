@@ -302,28 +302,238 @@ TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Th
 // OPTIONAL CHAINING
 
 // if opening hours exists and has a monday attribute, log the opening hours
-if (restaurant.openingHours && restaurant.openingHours.mon) {
-  console.log(restaurant.openingHours.mon.open);
+// if (restaurant.openingHours && restaurant.openingHours.mon) {
+//   console.log(restaurant.openingHours.mon.open);
+// }
+//  // if monday doesn't exist AKA is undefined we will get undefined
+// // if monday does exist and it DOES have an open we will get opening hours
+// // CHAINING OPERATOR CHECKS IF ELEMENT ON LEFT EXISTS
+// console.log(restaurant.openingHours.mon?.open);
+//
+// // Can also be used in series
+// console.log(restaurant.openingHours?.mon?.open)
+//
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+//
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On ${day} we open at ${open}`);
+// }
+//
+// // Optional chaining for METHODS
+// // If order method is not nullish (AKA it exists) call it, else print string
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+//
+// // Optional chaining on ARRAYS
+// const users = [{name: 'sean', email: 'shea7073@gmail.com'}];
+// console.log(users[0]?.name ?? 'User array empty');
+
+// LOOPING OBJECTS
+
+// For property NAMES (keys)
+// const properties = Object.keys(openingHours);
+// //console.log(properties);
+//
+// let openStr = `We are open on ${properties.length} days: `;
+// for (const day of properties) {
+//   openStr += `${day}`;
+// }
+//
+// // For property VALUES
+// const values = Object.values(openingHours);
+// //console.log(values);
+//
+// // Entire object (keys and values)
+// const entries = Object.entries(openingHours);
+// console.log(entries);
+//
+// for (const [key, {open, close}] of entries) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}`);
+// }
+
+
+// CODING CHALLENGE #2
+
+/*
+Let's continue with our football betting app!
+
+1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
+2. Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
+3. Print the 3 odds to the console, but in a nice formatted way, exaclty like this:
+      Odd of victory Bayern Munich: 1.33
+      Odd of draw: 3.25
+      Odd of victory Borrussia Dortmund: 6.5
+Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: Note how the odds and the game objects have the same property names 😉
+
+BONUS: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
+      {
+        Gnarby: 1,
+        Hummels: 1,
+        Lewandowski: 2
+      }
+
+GOOD LUCK 😀
+*/
+
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+//   printGoals: function(...names) {
+//     console.log(...names, names.length, 'Goals');
+//   }
+// };
+//
+// for (const [i, player] of game.scored.entries()) {
+//   console.log(`Goal ${i + 1} by ${player}`);
+// }
+//
+// let sum = 0;
+// for (const odd of Object.values(game.odds)) {
+//   sum += odd;
+// }
+// const avg = sum / Object.values(game.odds).length;
+// console.log(avg)
+//
+//
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const teamStr = game[team] ? `victory ${game[team]}` : 'draw'
+//   console.log(`Odd of ${teamStr} ${odd}`)
+//   //console.log(team, odd);
+// }
+//
+// const scorers = {}
+//
+// for (const scorer of game.scored){
+//   scorers[scorer] ? scorers[scorer]++ : scorers[scorer] = 1;
+//
+// }
+//
+// console.log(scorers);
+
+// SETS (No Duplicates)
+
+// const ordersSet = new Set(['Pasta', 'Pizza', 'Pasta', 'Risotto', 'Pizza'])
+// console.log(ordersSet)
+//
+// // can create a set from a string
+// const strSet = new Set('Sean');
+// // num of elements
+// console.log(ordersSet.size);
+// // check if element exists
+// console.log(ordersSet.has('Pizza'));
+// // add to set
+// ordersSet.add('Garlic Bread');
+// // delete
+// ordersSet.delete('Risotto');
+// // delete everything in set
+// // ordersSet.clear();
+//
+// for (const order of ordersSet) {
+//   console.log(order)
+// }
+//
+// // example
+// const staff = ['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter'];
+// const staffUnique = [...new Set(staff)];
+// console.log(staffUnique);
+//
+//
+
+// MAPS
+
+const rest = new Map();
+rest.set('name', 'classico italiano');
+rest.set(1, 'Firenze');
+// set actually also returns the map
+console.log(rest.set(2, 'lisbon'));
+
+rest.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic']).set('open', 11).set('close', 23);
+rest.set(true, 'we are open').set(false, 'we are closed');
+// reading from maps
+console.log(rest.get('name'));
+
+const time = 21;
+
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+// check if map has element
+console.log(rest.has('categories'));
+rest.delete(2);
+//rest.size;
+//rest.clear();
+
+// can use array as key but it has to be the same array in memory (so save the array in a variable first)
+const arr = [1, 2];
+rest.set(arr, 'Test');
+console.log(rest.get(arr));
+// objects too!
+console.log(document.querySelector('h1'), 'Heading');
+
+// map iteration
+// looks a lot like Object.entries
+const question = new Map([
+    ['question', 'what is the best programming language?'],
+    [1, 'C'],
+    [2, 'Java'],
+    [3, 'Javascript'],
+    ['correct', 3],
+    [true, 'correct'],
+    [false, 'try again']
+    ]);
+
+// convert object to map
+const hoursMap = new Map(Object.entries(openingHours));
+
+// quiz app
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') {
+    console.log(`answer ${key}: ${value}`);
+  }
 }
- // if monday doesn't exist AKA is undefined we will get undefined
-// if monday does exist and it DOES have an open we will get opening hours
-// CHAINING OPERATOR CHECKS IF ELEMENT ON LEFT EXISTS
-console.log(restaurant.openingHours.mon?.open);
+// const answer = Number(prompt('Your answer'));
+const answer = 3;
+console.log(answer);
 
-// Can also be used in series
-console.log(restaurant.openingHours?.mon?.open)
+console.log(question.get(answer === question.get('correct')));
 
-const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-
-for (const day of days) {
-  const open = restaurant.openingHours[day]?.open ?? 'closed';
-  console.log(`On ${day} we open at ${open}`);
-}
-
-// Optional chaining for METHODS
-// If order method is not nullish (AKA it exists) call it, else print string
-console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
-
-// Optional chaining on ARRAYS
-const users = [{name: 'sean', email: 'shea7073@gmail.com'}];
-console.log(users[0]?.name ?? 'User array empty');
+// convert map to array
+console.log([...question]);
+console.log([...question.keys()]);
+console.log([...question.values()])
