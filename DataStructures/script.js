@@ -743,22 +743,26 @@ Afterwards, test with your own test data!
 GOOD LUCK 😀
 */
 
+//
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
+//
+// // should have used the trim method to remove white space instead of replaceAll
+// document.querySelector('button').addEventListener('click', function () {
+//     const text = document.querySelector('textarea').value;
+//     const split_data = text.split('\n');
+//     for (let i = 0; i < split_data.length; i++) {
+//         const trimmedLine = split_data[i].replaceAll(' ', '').toLowerCase();
+//         const [first, second] = trimmedLine.split('_');
+//         const second_upper = second[0].toUpperCase() + second.slice(1);
+//         let padded = (first + second_upper).padEnd(20, ' ');
+//         padded += '✅'.repeat(i + 1);
+//         console.log(padded);
+//     }
+// });
+//
+//
 
-document.body.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'));
-
-// should have used the trim method to remove white space instead of replaceAll
-document.querySelector('button').addEventListener('click', function () {
-    const text = document.querySelector('textarea').value;
-    const split_data = text.split('\n');
-    for (let i = 0; i < split_data.length; i++) {
-        const trimmedLine = split_data[i].replaceAll(' ', '').toLowerCase();
-        const [first, second] = trimmedLine.split('_');
-        const second_upper = second[0].toUpperCase() + second.slice(1);
-        let padded = (first + second_upper).padEnd(20, ' ');
-        padded += '✅'.repeat(i + 1);
-        console.log(padded);
-    }
-});
-
+const flights =
+    '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
